@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+   name: poo
+   labels:
+      app: toi
+spec:
+   replicas: 3
+   selector:
+     matchLabels:
+         app: front
+   template:
+     metadata:
+       name: delhipod
+       labels:
+          app: front
+     spec:
+       containers:
+          - name: c01
+            image: ubuntu
+
+
+kubectl scale rs name --replicas=4
+~                       
