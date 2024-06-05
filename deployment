@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: bluegreen
+   labels:
+     app: deploy
+spec:
+   replicas: 4
+   selector:
+     matchLabels:
+        name: hu
+   template:
+      metadata:
+          name: delhipod
+          labels:
+             name: hu
+      spec:
+        containers:
+          - name: c01
+            image: nginx
